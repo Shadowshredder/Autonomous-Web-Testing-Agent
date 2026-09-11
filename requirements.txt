@@ -1,0 +1,4 @@
+google-genai==2.22.0
+python-dotenv==1.2.3
+playwright==1.62.0
+mcp==2.2.0
