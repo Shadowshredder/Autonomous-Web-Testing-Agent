@@ -1,0 +1,48 @@
+{
+    "agent": "Autonomous Web Testing Agent",
+    "total_tests": 1,
+    "passed_tests": 0,
+    "failed_tests": 1,
+    "overall_status": "FAIL",
+    "tests": [
+        {
+            "requirement": "Open https://example.com and verify that the text \"This Text Does Not Exist\" is displayed.",
+            "test_plan": {
+                "test_name": "Verify text presence on example.com",
+                "steps": [
+                    {
+                        "action": "navigate",
+                        "url": "https://example.com"
+                    },
+                    {
+                        "action": "verify_text",
+                        "expected": "This Text Does Not Exist"
+                    }
+                ]
+            },
+            "results": [
+                {
+                    "action": "navigate",
+                    "status": "PASS"
+                },
+                {
+                    "action": "verify_text",
+                    "status": "FAIL",
+                    "error": "Locator.wait_for: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"This Text Does Not Exist\", exact=True) to be visible\n",
+                    "screenshot": "screenshots/test_failure.png"
+                }
+            ],
+            "summary": {
+                "test_number": 1,
+                "test_name": "Verify text presence on example.com",
+                "status": "FAIL",
+                "passed_steps": 1,
+                "failed_steps": 1
+            },
+            "ai_failure_analysis": {
+                "failure_reason": "The expected text 'This Text Does Not Exist' is not present on https://example.com, causing a timeout while waiting for it to become visible.",
+                "suggested_action": "Update the test step assertion to match actual text displayed on the page (e.g., 'Example Domain') or verify the requirement."
+            }
+        }
+    ]
+}

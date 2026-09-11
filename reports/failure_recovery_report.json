@@ -1,0 +1,133 @@
+{
+    "agent": "Autonomous Web Testing Agent",
+    "total_tests": 3,
+    "passed_tests": 2,
+    "failed_tests": 1,
+    "overall_status": "FAIL",
+    "tests": [
+        {
+            "test_plan": {
+                "test_name": "Successful SauceDemo Login Test",
+                "steps": [
+                    {
+                        "action": "navigate",
+                        "url": "https://www.saucedemo.com"
+                    },
+                    {
+                        "action": "type",
+                        "selector": "#user-name",
+                        "text": "standard_user"
+                    },
+                    {
+                        "action": "type",
+                        "selector": "#password",
+                        "text": "secret_sauce"
+                    },
+                    {
+                        "action": "click_text",
+                        "text": "Login"
+                    },
+                    {
+                        "action": "verify_text",
+                        "expected": "Products"
+                    }
+                ]
+            },
+            "results": [
+                {
+                    "action": "navigate",
+                    "status": "PASS"
+                },
+                {
+                    "action": "type",
+                    "status": "PASS"
+                },
+                {
+                    "action": "type",
+                    "status": "PASS"
+                },
+                {
+                    "action": "click_text",
+                    "status": "PASS"
+                },
+                {
+                    "action": "verify_text",
+                    "status": "PASS"
+                }
+            ],
+            "summary": {
+                "test_number": 1,
+                "test_name": "Successful SauceDemo Login Test",
+                "status": "PASS",
+                "passed_steps": 5,
+                "failed_steps": 0
+            }
+        },
+        {
+            "test_plan": {
+                "test_name": "Intentional Failure Test",
+                "steps": [
+                    {
+                        "action": "navigate",
+                        "url": "https://example.com"
+                    },
+                    {
+                        "action": "verify_text",
+                        "expected": "This Text Does Not Exist"
+                    }
+                ]
+            },
+            "results": [
+                {
+                    "action": "navigate",
+                    "status": "PASS"
+                },
+                {
+                    "action": "verify_text",
+                    "status": "FAIL",
+                    "error": "Locator.wait_for: Timeout 10000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"This Text Does Not Exist\", exact=True) to be visible\n",
+                    "screenshot": "screenshots/test_failure.png"
+                }
+            ],
+            "summary": {
+                "test_number": 2,
+                "test_name": "Intentional Failure Test",
+                "status": "FAIL",
+                "passed_steps": 1,
+                "failed_steps": 1
+            }
+        },
+        {
+            "test_plan": {
+                "test_name": "Test After Failure",
+                "steps": [
+                    {
+                        "action": "navigate",
+                        "url": "https://example.com"
+                    },
+                    {
+                        "action": "verify_title",
+                        "expected": "Example Domain"
+                    }
+                ]
+            },
+            "results": [
+                {
+                    "action": "navigate",
+                    "status": "PASS"
+                },
+                {
+                    "action": "verify_title",
+                    "status": "PASS"
+                }
+            ],
+            "summary": {
+                "test_number": 3,
+                "test_name": "Test After Failure",
+                "status": "PASS",
+                "passed_steps": 2,
+                "failed_steps": 0
+            }
+        }
+    ]
+}
